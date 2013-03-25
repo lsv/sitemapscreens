@@ -45,14 +45,21 @@ class WebTest
 
 	public function testSitemap()
 	{
+		libxml_use_internal_errors(true);
 		$xml = simplexml_load_string(file_get_contents($this->sitemapurl));
-		foreach($xml->url AS $url) {
-			$loc = (string)$url->loc;
+		if (! $xml) {
+			foreach(libxml_get_errors() AS $e) {
+				echo $e . "\n";
+			}
+		} else {
+			foreach($xml->url AS $url) {
+				$loc = (string)$url->loc;
 
-			if (strpos($loc, $this->starturl) !== false) {
-				$url = str_replace($this->starturl, '', $loc);
-				$this->url($url);
-				$this->screenshot($url);
+				if (strpos($loc, $this->starturl) !== false) {
+					$url = str_replace($this->starturl, '', $loc);
+					$this->url($url);
+					$this->screenshot($url);
+				}
 			}
 		}
 	}
