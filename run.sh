@@ -8,12 +8,10 @@ else
 fi
 
 SITEMAP="${SITEMAP//\//\\/}"
-
 RAND=$RANDOM
 
 cp _Base.php $RAND.php
 sed -i "s/#SITEMAPURL#/$SITEMAP/g" $RAND.php
 
-selenium2
 phpunit $RAND.php
 rm $RAND.php

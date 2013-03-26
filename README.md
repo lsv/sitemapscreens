@@ -2,7 +2,8 @@ Take screenshot of a whole website
 (the website requries a xml sitemap)
 
 Install selenium2 server
-http://selenium.googlecode.com/files/selenium-server-standalone-2.30.0.jar
+
+    http://selenium.googlecode.com/files/selenium-server-standalone-2.30.0.jar
 
 make a bash file named selenium2 and put into /usr/bin and make it executeable
 
@@ -19,7 +20,11 @@ make sure the following commands can be run
     selenium2
     phpunit _BASE.php (will generate error, but just to see if its runable)
 
-Now you can run the run.sh on the following ways
+Now run
+
+    selenium2
+
+And in a new terminal run
 
     run.sh
 
